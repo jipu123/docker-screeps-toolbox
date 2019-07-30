@@ -1,0 +1,38 @@
+version: "3.5"
+services:
+  screeps-server:
+    image: "ags131/screeps-server"
+    depends_on:
+      - screeps-redis
+      - screeps-mongo
+    volumes:
+      - $PWD:/screeps
+    networks:
+      - screeps-net
+    ports:
+      - 21025:21025
+
+  screeps-redis:
+    image: "redis:3.0.6"
+    networks:
+      - screeps-net
+    volumes:
+      - screeps-redis-db:/data
+    expose:
+      - 6379
+
+  screeps-mongo:
+    image: "mongo:2.6.4"
+    networks:
+      - screeps-net
+    volumes:
+      - screeps-mongo-db:/etc/mongo
+    expose:
+      - 27017
+
+networks:
+  screeps-net:
+
+volumes:
+  screeps-redis-db:
+  screeps-mongo-db:
