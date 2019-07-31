@@ -3,8 +3,8 @@ services:
   server:
     image: "ags131/screeps-server"
     depends_on:
-      - screeps-redis
-      - screeps-mongo
+      - redis
+      - mongo
     volumes:
       - $PWD:/screeps
     networks:
