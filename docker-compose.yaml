@@ -26,7 +26,7 @@ services:
     networks:
       - screeps-net
     volumes:
-      - screeps-mongo-db:/etc/mongo
+      - screeps-mongo-db:/data/db
     expose:
       - 27017
 
