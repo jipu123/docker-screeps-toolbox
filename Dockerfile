@@ -1,4 +1,4 @@
-FROM node:10.13.0-stretch
+FROM node:10.16.3-stretch
 VOLUME /screeps
 WORKDIR /screeps
 

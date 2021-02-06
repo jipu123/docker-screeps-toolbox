@@ -4,6 +4,7 @@ set -e
 function init_srv(){
 	echo "===== SETTING UP SCREEPS ====="
 	yarn init -y
+	yarn config set registry https://registry.npm.taobao.org
 	yarn add screeps
 	npx screeps init
 }

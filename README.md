@@ -1,37 +1,55 @@
-# Respberrypi Screeps Server
+# docker-screeps-toolbox
 
-This image is built on the `arm` platform based on the dockerfile of the `ags131/screeps-server`. So you can use this image with exactly the same commands as [ags131/screeps-server](https://hub.docker.com/r/ags131/screeps-server).
+docker screeps 服务器部署工具包，用于简化 screeps 游戏服务部署流程，并针对国内网络进行了优化。需要提前安装 docker 以及 docker-compose（*如果打算使用 mongo 的话*）。
 
-# Commands
+# 脚本
 
-Here are some common commands, Make sure you are in the directory where you plan to install the server:
+本工具包提供如下脚本，你可以在 [这里](https://www.jianshu.com/p/91ab3ccc537b) 找到具体的使用方法：
 
-**init server**
-
-```
-docker run -it --rm -v $PWD:/screeps hopgoldy/respberrypi-screeps-server init
-```
-
-**run server**
+**构建运行时镜像**
 
 ```
-docker run -d --name screeps-server \
-  -v $PWD:/screeps \
-  -p 21025:21025 hopgoldy/respberrypi-screeps-server
+./build.sh
 ```
 
-**use cli**
+**部署服务器**
 
 ```
-docker exec -it screeps-server npx screeps cli
+./install.sh
 ```
 
-**add mod**
+**运行服务器**
 
 ```
-docker run --rm \
-  -v $PWD:/screeps hopgoldy/respberrypi-screeps-server \
-  yarn add your-screeps-mod-name-here
+./start.sh
 ```
 
-see [docker hub - ags131/screeps-server](https://hub.docker.com/r/ags131/screeps-server) for more details.
+**停止服务器**
+
+```
+./stop.sh
+```
+
+**进入命令行**
+
+```
+./cli.sh
+```
+
+**安装 mod**
+
+```
+./add.sh [要安装的 mod 名称，不需要加中括号]
+```
+
+**运行添加了 mongo 的服务器**
+
+```
+./start_with_mongo.sh
+```
+
+**关闭添加了 mongo 的服务器**
+
+```
+./stop_with_mongo.sh
+```
