@@ -13,7 +13,7 @@ else
     -v $PWD:/screeps \
     ${IMAGE_NAME} \
     sh -c "
-      yarn config set registry https://registry.npm.taobao.org & \
+      yarn config set registry http://registry.npmmirror.com & \
       yarn add $1
     "
 fi
